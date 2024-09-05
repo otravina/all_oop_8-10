@@ -1,0 +1,86 @@
+﻿<Window x:Class="lr9.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lr9"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+       
+        <!-- Правая часть окна с информацией о студенте -->
+        <Grid x:Name="infoGrid" Grid.Column="0" Background="LightGreen">
+
+
+            <TextBlock Text="Информация о студенте" Margin="5" FontWeight="Bold" />
+            <TextBlock HorizontalAlignment="Left" Margin="5,50,0,0" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="5,75,0,0" TextWrapping="Wrap" Text="Фамилия" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="5,100,0,0" TextWrapping="Wrap" Text="Возраст" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="5,125,0,0" TextWrapping="Wrap" Text="Дисциплины" VerticalAlignment="Top"/>
+            <TextBox x:Name="firstNameTextBlock" HorizontalAlignment="Left" Margin="92,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="lastNameTextBlock" HorizontalAlignment="Left" Margin="92,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="ageTextBlock" HorizontalAlignment="Left" Margin="92,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <CheckBox x:Name="Математика" Content="Математика" HorizontalAlignment="Left" Margin="30,168,0,0" VerticalAlignment="Top" Tag="1"/>
+            <CheckBox x:Name="Физика" Content="Физика" HorizontalAlignment="Left" Margin="30,188,0,0" VerticalAlignment="Top" Tag="2"/>
+            <CheckBox x:Name="Английский" Content="Английский" HorizontalAlignment="Left" Margin="30,208,0,0" VerticalAlignment="Top" Tag="3"/>
+            <CheckBox x:Name="Биологоия" Content="Биологоия" HorizontalAlignment="Left" Margin="129,168,0,0" VerticalAlignment="Top" Tag="4"/>
+            <CheckBox x:Name="Инженерия" Content="Инженерия" HorizontalAlignment="Left" Margin="129,188,0,0" VerticalAlignment="Top" Tag="5"/>
+            <CheckBox x:Name="Химия" Content="Химия" HorizontalAlignment="Left" Margin="129,208,0,0" VerticalAlignment="Top" Tag="6"/>
+            <CheckBox x:Name="Русский_язык" Content="Русский язык" HorizontalAlignment="Left" Margin="234,168,0,0" VerticalAlignment="Top" Tag="7"/>
+            <CheckBox x:Name="История" Content="История" HorizontalAlignment="Left" Margin="234,188,0,0" VerticalAlignment="Top" Tag="8"/>
+            <CheckBox x:Name="Менеджмент" Content="Менеджмент" HorizontalAlignment="Left" Margin="234,208,0,0" VerticalAlignment="Top" Tag="9"/>
+            <Button x:Name="GoBack_btn" Content="Назад" HorizontalAlignment="Center" Padding="10,5" Margin="0,301,0,0" VerticalAlignment="Top" Click="GoBack_btn_Click"/>
+            <Button x:Name="SaveEdit" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden" Width="50" Padding="10,5" Margin="30,301, 0, 0" Height="28" Click="Save_Edit_btn_Click"/>
+            <Button x:Name="SaveAdd" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden" Width="50" Padding="10,5" Margin="30,301, 0, 0" Height="28" Click="Save_Add_btn_Click"/>
+            <Button x:Name="Search" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden" Width="60" Padding="10,5" Margin="30,301, 0, 0" Height="28" Click="Search_btn_Click"/>
+
+        </Grid>
+        <!-- Левая часть окна с таблицей студентов -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50"  />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Список студентов" Margin="5" FontWeight="Bold" />
+
+
+            <DataGrid x:Name="studentsDataGrid" Grid.Row="1" AutoGenerateColumns="False" Background="LightSeaGreen">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="100" />
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="150" />
+                    <DataGridTextColumn Header="Возраст" Binding="{Binding Age}" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="Add_btn" Content="Add" Width="50" Height="30" Margin="10" Click="Add_btn_Click"/>
+                <Button x:Name="View_btn" Content="View" Width="50" Height="30" Margin="10" Click="View_btn_Click"/>
+                <Button x:Name="Delete_btn" Content="Delete" Width="60" Height="30" Margin="10" Click="Delete_btn_Click"/>
+                <Button x:Name="Edit_btn" Content="Edit" Width="50" Height="30" Margin="10" Click="Edit_btn_Click"/>
+            </StackPanel>
+            <Menu Background="LightCyan">
+                <MenuItem Header="сортировка" FontWeight="Bold">
+
+                    <MenuItem Header="возраст">
+                        <MenuItem x:Name="sort_age_asc" Header="по возрастанию" Click="Sort_age_asc_Click"></MenuItem>
+                        <MenuItem x:Name="sort_age_desc" Header="по убыванию" Click="Sort_age_desc_Click"></MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="фамилия">
+                        <MenuItem x:Name="sort_lastname_asc" Header="от А до Z" Click="Sort_lastname_asc_Click"></MenuItem>
+                        <MenuItem x:Name="sort_lastname_desc" Header="от Z до A" Click="Sort_lastname_desc_Click"></MenuItem>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem x:Name="menu_search" FontWeight="Bold" Header="поиск" Click="menu_search_Click"></MenuItem>
+            </Menu>
+        </Grid>
+    </Grid>
+
+</Window>
