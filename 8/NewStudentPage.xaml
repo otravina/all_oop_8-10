@@ -1,0 +1,54 @@
+﻿<Page x:Class="_8.NewStudentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_8" xmlns:system="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="New Student"
+      x:Name="NewStudent">
+
+    <Grid Background="AliceBlue">
+        <Frame x:Name="MainFrame" />
+        <TextBlock HorizontalAlignment="Left" Margin="65,15,0,0" TextWrapping="Wrap" Text="UDC" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="65,47,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="65,79,0,0" TextWrapping="Wrap" Text="Page Count" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbUDC" HorizontalAlignment="Left" Margin="152,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbTitle" HorizontalAlignment="Left" Margin="152,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbPageCount" HorizontalAlignment="Left" Margin="152,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="65,116,0,0" TextWrapping="Wrap" Text="Publisher" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbPublisher" HorizontalAlignment="Left" Margin="152,113,0,0" VerticalAlignment="Top" Width="120">
+            <system:String>исторический</system:String>
+            <system:String>военный</system:String>
+            <system:String>химичсекий</system:String>
+            <system:String>информационный</system:String>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="65,153,0,0" TextWrapping="Wrap" Text="Upload Date" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dpUploadDate" HorizontalAlignment="Left" Margin="152,149,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="65,191,0,0" TextWrapping="Wrap" Text="Year" VerticalAlignment="Top"/>
+        
+        <TextBlock HorizontalAlignment="Left" Margin="65,227,0,0" TextWrapping="Wrap" Text="Format" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbFormat" HorizontalAlignment="Left" Margin="152,224,0,0" VerticalAlignment="Top" Width="120">
+            <system:String>1</system:String>
+            <system:String>2</system:String>
+            <system:String>3</system:String>
+            <system:String>4</system:String>
+            <system:String>5</system:String>
+            <system:String>6</system:String>
+            <system:String>7</system:String>
+            <system:String>8</system:String>
+            <system:String>9</system:String>
+            <system:String>10</system:String>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="65,263,0,0" TextWrapping="Wrap" Text="File Size" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbFileSize" HorizontalAlignment="Left" Margin="152,263,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="66" Margin="370,47,0,0" VerticalAlignment="Top" Width="84"/>
+        <Button x:Name="LoadImage_btn" Content="Load image" HorizontalAlignment="Left" Padding="10,5" Margin="370,135,0,0" VerticalAlignment="Top" Click="LoadImage_btn_Click"/>
+        <Button x:Name="Address_btn" Content="Add author" HorizontalAlignment="Left" Padding="10,5" Margin="370,197,0,0" VerticalAlignment="Top" Click="To_Address_btn_Click"/>
+        <TextBox x:Name="tbPublishYear" HorizontalAlignment="Left" Margin="152,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="65,299,0,0" TextWrapping="Wrap" Text="Author" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbListOfAuthors" HorizontalAlignment="Left" Margin="152,299,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Page>
